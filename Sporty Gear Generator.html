@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football Drip Generator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0; /* Light Gray */
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background-color: #232323;
+      padding: 20px;
+      color: #fff;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      background-color: #3498db; /* Blue */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #1f618d; /* Darker Blue */
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Football Drip Generator</h1>
+  </header>
+
+  <main>
+    <h2>Random Gear Generators</h2>
+
+    <button onclick="generateRandom('Helmet')">Generate Random Helmet</button>
+    <p id="randomHelmet"></p>
+
+    <button onclick="generateRandom('Glove')">Generate Random Glove</button>
+    <p id="randomGlove"></p>
+
+    <button onclick="generateRandom('Sleeve')">Generate Random Sleeve</button>
+    <p id="randomSleeve"></p>
+
+    <button onclick="generateRandom('Cleat')">Generate Random Cleat</button>
+    <p id="randomCleat"></p>
+  </main>
+
+  <script>
+    function generateRandom(type) {
+      const helmets = [
+        'VICIS ZERO2-R TRENCH',
+        'VICIS ZERO2-R MATRIX ID1',
+        'Riddell SpeedFlex Precision Diamond (R41106)',
+        'Xenith Shadow XR',
+        'Schutt F7 UR1 (208300)',
+        'Schutt F7 2.0 (209000)'
+      ];
+
+      const gloves = ['Nike', 'Under Armour', 'NXTRND', 'Shock Doctor', 'Adidas'];
+      const sleeves = ['Nike', 'Under Armour', 'NXTRND', 'Shock Doctor', 'Adidas'];
+      const cleats = ['Nike', 'Under Armour', 'NXTRND', 'Shock Doctor', 'Adidas'];
+
+      let randomItem;
+
+      switch (type) {
+        case 'Helmet':
+          randomItem = helmets[Math.floor(Math.random() * helmets.length)];
+          document.getElementById('randomHelmet').textContent = `Random Helmet: ${randomItem}`;
+          break;
+        case 'Glove':
+          randomItem = gloves[Math.floor(Math.random() * gloves.length)];
+          document.getElementById('randomGlove').textContent = `Random Glove: ${randomItem}`;
+          break;
+        case 'Sleeve':
+          randomItem = sleeves[Math.floor(Math.random() * sleeves.length)];
+          document.getElementById('randomSleeve').textContent = `Random Sleeve: ${randomItem}`;
+          break;
+        case 'Cleat':
+          randomItem = cleats[Math.floor(Math.random() * cleats.length)];
+          document.getElementById('randomCleat').textContent = `Random Cleat: ${randomItem}`;
+          break;
+        default:
+          break;
+      }
+    }
+  </script>
+
+</body>
+</html>
