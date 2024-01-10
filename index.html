@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Football Heads Official Site</title>
+  <title>Football Heads - Sports News</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -11,30 +11,110 @@
       padding: 0;
       background-color: #f0f0f0; /* Light Gray */
       color: #333;
+      text-align: center;
     }
 
     header {
       background-color: #232323;
-      padding: 10px 20px;
+      padding: 20px;
       color: #fff;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .headline-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .headline {
+      flex: 1;
+      padding: 20px;
+      box-sizing: border-box;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .headline img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .headline h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .headline p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .headline:hover {
+      transform: scale(1.05);
+    }
+
+    .footer {
+      background-color: #232323;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .scores-bar {
+      display: flex;
+      overflow-x: auto;
+      padding: 10px;
+      white-space: nowrap;
+      cursor: grab;
+      user-select: none;
+    }
+
+    .score {
+      flex: 0 0 auto;
+      margin-right: 20px;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: #3498db; /* Blue */
+      color: #fff;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .score.loser {
+      background-color: #e74c3c; /* Red */
+      opacity: 0.8;
+    }
+
+    nav {
+      background-color: #3498db; /* Blue */
+      padding: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    nav {
-      display: flex;
-    }
-
     nav a {
-      text-decoration: none;
       color: #fff;
-      padding: 10px 20px;
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 5px 10px;
+      border-radius: 5px;
       transition: background-color 0.3s ease-in-out;
     }
 
     nav a:hover {
-      background-color: #3498db; /* Blue */
+      background-color: #1f618d; /* Darker Blue */
     }
 
     .dropdown {
@@ -43,75 +123,178 @@
     }
 
     .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #232323;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-    }
+  display: none;
+  position: absolute;
+  background-color: #3498db; /* Blue */
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  max-height: 200px; /* Set a fixed height for the dropdown */
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+  white-space: nowrap; /* Prevent item wrapping */
+}
+
+@media (min-width: 400px) {}
+  .dropdown-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .dropdown-content a {
+    flex-basis: calc(25% - 20px); /* 25% width with 20px margin */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #1f618d; /* Darker Blue */
+  }
 
     .dropdown:hover .dropdown-content {
       display: block;
     }
 
-    .dropdown-content a {
-      color: #fff;
-      padding: 10px;
+    .link-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .link {
+  flex-basis: calc(25% - 20px); /* 25% width with 20px margin */
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease-in-out;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+    .link:hover {
+      background-color: #ecf0f1; /* Light Gray */
+    }
+
+    .dropdown-link {
       display: block;
+      padding: 10px;
       text-decoration: none;
+      color: #333;
       transition: background-color 0.3s ease-in-out;
     }
 
-    .dropdown-content a:hover {
-      background-color: #3498db; /* Blue */
+    .dropdown-link:hover {
+      background-color: #ecf0f1; /* Light Gray */
     }
 
-    .footer {
-      background-color: #232323;
-      color: #fff;
-      text-align: center;
-      padding: 10px 0;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Football Heads</h1>
-  </header>
-
-  <header>
-    <nav>
-      <div class="dropdown">
-        <a>Games</a>
-        <div class="dropdown-content">
-          <a href="2024 NFL Mock Draft Simulator.html">2024 NFL Mock Draft Sim</a>
-          <a href="NFL Team or Roster Creator.html">Roster Creator</a>
-          <a href="NCAA Heisman Odds 2024.html">Heisman Odds Page</a>
-          <a href="Random Player Generator.html">Random Player Generator</a>
-          <a href="2024 Custom NFL Career.html">Custom NFL QB Career</a>
-          <a href="2024 Custom College Career.html">Custom College Creator</a>
+  <nav>
+    <a href="fbheads_articlearcives.html">Archive</a>
+    <a href="index.html">Main Site</a>
+    
+    <div class="link-container">
+      <div class="link">
+        <div class="dropdown">
+          <a href="#">Games</a>
+          <div class="dropdown-content">
+            <a href="2024 Custom NFL Career.html" class="dropdown-link">2024 Custom NFL QB Career</a>
+            <a href="2024 NFL Mock Draft Simulator.html" class="dropdown-link">2024 NFL Mock Draft Simulator</a>
+            <a href="College Football Roster Builder.html" class="dropdown-link">College Football Roster Builder</a>
+            <a href="Custom College Creator.html" class="dropdown-link">Custom College Creator</a>
+            <a href="Custom Madden Card Creator.html" class="dropdown-link">Custom Madden Card Creator</a>
+            <a href="NCAA Heisman Odds 2024.html" class="dropdown-link">NCAA Heisman Odds 2024</a>
+            <a href="NFL Team or Roster Creator.html" class="dropdown-link">NFL Team or Roster Creator</a>
+            <a href="Random Player Generator.html" class="dropdown-link">Random Player Generator</a>
+            <a href="Sporty Gear Generator.html" class="dropdown-link">Football Drip Generator</a>
+          </div>
         </div>
       </div>
-      <a href="football heads official site.html">Main Site</a>
-      <a href="fbheads_articlearcives.html">Archives</a>
-    </nav>
+    </div>
+    Football Drip Generator
+    <a href="Football Heads - Player Database.html">Player Database</a>
+  </nav>
+
+  <header>
+    <h1>Football Heads - Sports News</h1>
   </header>
 
   <main>
-    <!-- Your main content goes here -->
-    <p>Welcome to Football Heads! Explore the latest news, articles, and more.</p>
+    <div class="scores-bar">
+      <div class="score">Bills 21 - Dolphins 14</div>
+      <div class="score">Chiefs 13 - Chargers 12</div>
+      <div class="score">Rams 21 - 49ers 20</div>
+      <div class="score">Seahawks 21 - Cardinals 20</div>
+      <div class="score">Giants 27 - Eagles 10</div>
+      <div class="score">Raiders 27 - Broncos 14</div>
+      <div class="score">Cowboys 38 - Commanders 10</div>
+      <div class="score">Packers 17 - Bears 9</div>
+      <div class="score">Bengals 31 - Browns 14</div>
+      <div class="score">Buccaneers 9 - Panthers 0</div>
+      <div class="score">Jets 17 - Patriots 3</div>
+      <div class="score">Saints 48 - Falcons 17</div>
+      <div class="score">Lions 30 - Vikings 20</div>
+      <div class="score">Titans 28 - Jaguars 20</div>
+      <div class="score">Texans 23 - Colts 19</div>
+      <div class="score">Steelers 17 - Ravens 10</div>
+    </div>
 
-    <h2>Player Pages</h2>
-    <a href Patrick Mahomes - Career Stats.html>Patrick Mahomes</a>
+    <div class="headline-container">
+      <div class="headline" onclick="location.href='article1.html';">
+        <img src="https://i2-prod.football.london/incoming/article27425480.ece/ALTERNATES/s1200b/0_Kylian-Mbappe.jpg" alt="Kylian Mbappe">
+        <h2>Soccer Trade Rumors</h2>
+        <p>Kylian Mbappe to Madrid? Kimmich to the Etihad? Musialia to Madrid backup? Learn more here.</p>
+      </div>
+
+      <div class="headline" onclick="location.href='Draymond Green - Recent Events.html'">
+        <img src="https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2023/06/1200/675/Draymond-Green2.jpg?ve=1&tl=1" alt="Draymond Green">
+        <h2>Draymond Green Expulsion</h2>
+        <p>NBA Star Power Forward Draymond Green has been expelled from the NBA. Again.</p>
+      </div>
+
+      <div class="headline" onclick="location.href='What to Know about NIL.html';">
+        <img src="https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/usctrojans.com/images/2023/12/5/bronny-james-usc-trojans-basketball-2023__1_.jpg" alt="Bronny James">
+        <h2>What is NIL?</h2>
+        <p>NIL Deals run rampid throughout college in 2024. This article explains it.</p>
+      </div>
+    </div>
   </main>
 
   <div class="footer">
     <p>&copy; 2024 Football Heads</p>
   </div>
+
+  <script>
+    let isMouseDown = false;
+    let startX;
+
+    document.querySelector('.scores-bar').addEventListener('mousedown', (e) => {
+      isMouseDown = true;
+      startX = e.pageX - document.querySelector('.scores-bar').offsetLeft;
+    });
+
+    document.addEventListener('mouseup', () => {
+      isMouseDown = false;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isMouseDown) return;
+      const x = e.pageX - document.querySelector('.scores-bar').offsetLeft;
+      const walk = (x - startX) * 0.5;
+      document.querySelector('.scores-bar').scrollLeft -= walk;
+    });
+
+    document.querySelector('.scores-bar').addEventListener('mouseleave', () => {
+      isMouseDown = false;
+    });
+  </script>
 
 </body>
 </html>
