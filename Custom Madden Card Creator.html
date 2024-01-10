@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Madden Card Creator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0; /* Light Gray */
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background-color: #232323;
+      padding: 20px;
+      color: #fff;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    select {
+      padding: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #3498db; /* Blue */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #e74c3c; /* Darker Blue */
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .team-selector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .team-name {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .team-color {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #232323; /* Dark Gray */
+      margin-right: 10px;
+    }
+
+    .footer {
+      background-color: #232323;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      padding: 10px 20px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      background-color: #3498db; /* Blue */
+    }
+
+  </style>
+</head>
+<body>
+
+    <nav>
+        <a href="2024 NFL Mock Draft Simulator.html">Mock Draft Simulator</a>
+        <a href="index.html">Main Site</a>
+        <a href="fbheads_articlearcives.html">Archives</a>
+      </nav>
+
+  <header>
+    <h1>Custom Madden Card Creator</h1>
+  </header>
+
+  <main>
+    <label for="playerName">Player Name:</label>
+    <input type="text" id="playerName" placeholder="Enter Player Name">
+
+    <div class="team-selector">
+      <span class="team-name">Team:</span>
+      <select id="teamSelector" onchange="updateTeamColor()">
+        <option value="default">Select Team</option>
+        <option value="Cardinals">Arizona Cardinals</option>
+                        <option value="Falcons">Atlanta Falcons</option>
+                        <option value="Ravens">Baltimore Ravens</option>
+                        <option value="Bills">Buffalo Bills</option>
+                        <option value="Panthers">Carolina Panthers</option>
+                        <option value="Bears">Chicago Bears</option>
+                        <option value="Bengals">Cincinnati Bengals</option>
+                        <option value="Browns">Cleveland Browns</option>
+                        <option value="Cowboys">Dallas Cowboys</option>
+                        <option value="Broncos">Denver Broncos</option>
+                        <option value="Lions">Detroit Lions</option>
+                        <option value="Packers">Green Bay Packers</option>
+                        <option value="Texans">Houston Texans</option>
+                        <option value="Colts">Indianapolis Colts</option>
+                        <option value="Jaguars">Jacksonville Jaguars</option>
+                        <option value="Chiefs">Kansas City Chiefs</option>
+                        <option value="Raiders">Las Vegas Raiders</option>
+                        <option value="Chargers">Los Angeles Chargers</option>
+                        <option value="Rams">Los Angeles Rams</option>
+                        <option value="Dolphins">Miami Dolphins</option>
+                        <option value="Vikings">Minnesota Vikings</option>
+                        <option value="Patriots">New England Patriots</option>
+                        <option value="Saints">New Orleans Saints</option>
+                        <option value="Giants">New York Giants</option>
+                        <option value="Jets">New York Jets</option>
+                        <option value="Eagles">Philadelphia Eagles</option>
+                        <option value="Steelers">Pittsburgh Steelers</option>
+                        <option value="49ers">San Francisco 49ers</option>
+                        <option value="Seahawks">Seattle Seahawks</option>
+                        <option value="Buccaneers">Tampa Bay Buccaneers</option>
+                        <option value="Titans">Tennessee Titans</option>
+                        <option value="Commanders">Washington Commanders</option>
+        <!-- Add more teams as needed -->
+      </select>
+      <div class="team-color" id="teamColor"></div>
+    </div>
+
+    <label for="speed">Speed:</label>
+    <input type="number" id="speed" placeholder="Enter Speed">
+
+    <label for="strength">Strength:</label>
+    <input type="number" id="strength" placeholder="Enter Strength">
+
+    <label for="accuracy">Accuracy:</label>
+    <input type="number" id="accuracy" placeholder="Enter Accuracy">
+
+    <label for="agility">Agility:</label>
+    <input type="number" id="agility" placeholder="Enter Agility">
+
+    <label for="awareness">Awareness:</label>
+    <input type="number" id="awareness" placeholder="Enter Awareness">
+
+    <label for="jumping">Jumping:</label>
+    <input type="number" id="jumping" placeholder="Enter Jumping">
+
+    <label for="power">Power:</label>
+    <input type="number" id="power" placeholder="Enter Power">
+
+    <button onclick="calculateOverall()">Generate Madden Card</button>
+
+    <div class="result" id="result">Overall Rating: N/A</div>
+  </main>
+
+  <div class="footer">
+    <p>&copy; 2024 Custom Madden Card Creator</p>
+  </div>
+
+  <script>
+    function calculateOverall() {
+      const speed = parseFloat(document.getElementById('speed').value) || 0;
+      const strength = parseFloat(document.getElementById('strength').value) || 0;
+      const accuracy = parseFloat(document.getElementById('accuracy').value) || 0;
+      const agility = parseFloat(document.getElementById('agility').value) || 0;
+      const awareness = parseFloat(document.getElementById('awareness').value) || 0;
+      const jumping = parseFloat(document.getElementById('jumping').value) || 0;
+      const power = parseFloat(document.getElementById('power').value) || 0;
+
+      const overall = Math.round((speed + strength + accuracy + agility + awareness + jumping + power) / 7);
+
+      document.getElementById('result').textContent = `Overall Rating: ${overall}`;
+    }
+
+    function updateTeamColor() {
+      const teamSelector = document.getElementById('teamSelector');
+      const selectedTeam = teamSelector.options[teamSelector.selectedIndex].value;
+
+      const teamColorElement = document.getElementById('teamColor');
+
+      switch (selectedTeam) {
+        case 'team1':
+          teamColorElement.style.backgroundColor = '#FF5733'; // Team 1 Color (example: Orange)
+          break;
+        case 'team2':
+          teamColorElement.style.backgroundColor = '#3498db'; // Team 2 Color (example: Blue)
+          break;
+        case 'team3':
+          teamColorElement.style.backgroundColor = '#27ae60'; // Team 3 Color (example: Green)
+          break;
+        // Add more cases for additional teams
+        default:
+          teamColorElement.style.backgroundColor = ''; // Reset color if no team is selected
+          break;
+      }
+    }
+  </script>
+
+</body>
+</html>
+

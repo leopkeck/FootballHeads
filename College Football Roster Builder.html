@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Football Roster Builder</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0; /* Light Gray */
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background-color: #232323;
+      padding: 10px;
+      color: #fff;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    #playerList {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .player {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .player:last-child {
+      border-bottom: none;
+    }
+
+    .player label {
+      display: inline-block;
+      width: 150px;
+      font-weight: bold;
+    }
+
+    .footer {
+      background-color: #232323;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>College Football Roster Builder</h1>
+  </header>
+
+  <main>
+    <h2>Build Your Roster</h2>
+    <ul id="playerList"></ul>
+    <button onclick="showPlayerPicker()">Add Player</button>
+  </main>
+
+  <div class="footer">
+    <p>&copy; 2024 FootbaLL Heads</p>
+  </div>
+
+  <script>
+    function showPlayerPicker() {
+      // For simplicity, you can replace this with a more sophisticated player selection mechanism
+      const playerName = prompt("Enter the name of the player:");
+      const playerNIL = parseFloat(prompt("Enter the NIL money for the player:"));
+
+      if (playerName && !isNaN(playerNIL)) {
+        addPlayerToRoster(playerName, playerNIL);
+      } else {
+        alert("Invalid input. Please enter valid information.");
+      }
+    }
+
+    function addPlayerToRoster(name, NIL) {
+      const playerList = document.getElementById('playerList');
+
+      const playerItem = document.createElement('li');
+      playerItem.className = 'player';
+
+      const nameLabel = document.createElement('label');
+      nameLabel.textContent = 'Player Name:';
+      const nameSpan = document.createElement('span');
+      nameSpan.textContent = name;
+
+      const NILLabel = document.createElement('label');
+      NILLabel.textContent = 'NIL Money:';
+      const NILSpan = document.createElement('span');
+      NILSpan.textContent = `$${NIL.toFixed(2)}`;
+
+      playerItem.appendChild(nameLabel);
+      playerItem.appendChild(nameSpan);
+      playerItem.appendChild(NILLabel);
+      playerItem.appendChild(NILSpan);
+
+      playerList.appendChild(playerItem);
+    }
+  </script>
+
+</body>
+</html>
