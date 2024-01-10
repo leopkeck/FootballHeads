@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NFL Roster Creator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #232323;
+      padding: 10px;
+      text-align: center;
+      color: #fff;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, select, button {
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e74c3c;
+    }
+
+    .roster {
+      border-top: 1px solid #ddd;
+      margin-top: 20px;
+      padding-top: 20px;
+    }
+
+    .player {
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      background-color: #232323;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    nav {
+      background-color: #3498db;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+    <nav>
+        <a href="2024 NFL Mock Draft Simulator.html">Mock Draft Simulator</a>
+        <a href="football heads official site.html">Main Site</a>
+        <a href="fbheads_articlearcives.html">Archives</a>
+      </nav>
+
+  <header>
+    <h1>Football Roster Creator</h1>
+  </header>
+
+  <main>
+    <form id="rosterForm">
+      <label for="playerName">Player Name:</label>
+      <input type="text" id="playerName" required>
+
+      <label for="position">Position:</label>
+      <select id="position" required>
+        <option value="Quarterback">Quarterback</option>
+        <option value="Running Back">Running Back</option>
+        <option value="Wide Receiver">Wide Receiver</option>
+        <option value="Tight End">Tight End</option>
+        <option value="Tackle">Tackle</option>
+        <option value="Interior Offensive Line">Interior O-Line</option>
+        <option value="Center">Center</option>
+        <option value="Defensive Tackle">Defensive Tackle</option>
+        <option value="Defensive End">Defensive End</option>
+        <option value="Edge Rusher">Edge Rusher</option>
+        <option value="Interior Linebacker">Interior Linebacker</option>
+        <option value="Outside Linebacker">Outside Linebacker</option>
+        <option value="Cornerback">Cornerback</option>
+        <option value="Safety">Safety</option>
+        <option value="Kicker">Kicker</option>
+        <option value="Punter">Punter</option>
+        <!-- Add more positions -->
+      </select>
+
+      <label for="team">Team:</label>
+      <input type="text" id="team" required>
+
+      <button type="button" onclick="addPlayer()">Add Player</button>
+    </form>
+
+    <div class="roster">
+      <h2>Roster</h2>
+      <div id="playerList" class="player"></div>
+    </div>
+  </main>
+
+  <div class="footer">
+    <p>&copy; 2024 NFL Roster Creator</p>
+  </div>
+
+  <script>
+    function addPlayer() {
+      const playerNameInput = document.getElementById("playerName");
+      const positionSelect = document.getElementById("position");
+      const teamInput = document.getElementById("team");
+      const playerListContainer = document.getElementById("playerList");
+
+      const playerName = playerNameInput.value;
+      const position = positionSelect.options[positionSelect.selectedIndex].text;
+      const team = teamInput.value;
+
+      const playerDiv = document.createElement("div");
+      playerDiv.classList.add("player");
+      playerDiv.textContent = `${playerName} - ${position} - ${team}`;
+
+      playerListContainer.appendChild(playerDiv);
+
+      // Clear input fields
+      playerNameInput.value = "";
+      positionSelect.selectedIndex = 0;
+      teamInput.value = "";
+    }
+  </script>
+
+</body>
+</html>

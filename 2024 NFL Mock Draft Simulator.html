@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NFL Mock Draft Simulator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #232323;
+      padding: 10px;
+      text-align: center;
+      color: #fff;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    select, button {
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e74c3c;
+    }
+
+    .draft-results {
+      border-top: 1px solid #ddd;
+      margin-top: 20px;
+      padding-top: 20px;
+    }
+
+    .pick {
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      background-color: #232323;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      bottom: 0;
+      width: 100%;
+    }
+    
+    nav {
+      background-color: #3498db;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+    <nav>
+        <a href="2024 NFL Mock Draft Simulator.html">Mock Draft Simulator</a>
+        <a href="football heads official site.html">Main Site</a>
+        <a href="fbheads_articlearcives.html">Archives</a>
+      </nav>
+
+  <header>
+    <h1>NFL Mock Draft Simulator</h1>
+  </header>
+
+  <main>
+    <label for="teams">Select Team:</label>
+    <select id="teams">
+      <!-- Add options for each NFL team -->
+      <option value="choose">New England Patriots</option>
+                        <option value="Cardinals">Arizona Cardinals</option>
+                        <option value="Falcons">Atlanta Falcons</option>
+                        <option value="Ravens">Baltimore Ravens</option>
+                        <option value="Bills">Buffalo Bills</option>
+                        <option value="Panthers">Carolina Panthers</option>
+                        <option value="Bears">Chicago Bears</option>
+                        <option value="Bengals">Cincinnati Bengals</option>
+                        <option value="Browns">Cleveland Browns</option>
+                        <option value="Cowboys">Dallas Cowboys</option>
+                        <option value="Broncos">Denver Broncos</option>
+                        <option value="Lions">Detroit Lions</option>
+                        <option value="Packers">Green Bay Packers</option>
+                        <option value="Texans">Houston Texans</option>
+                        <option value="Colts">Indianapolis Colts</option>
+                        <option value="Jaguars">Jacksonville Jaguars</option>
+                        <option value="Chiefs">Kansas City Chiefs</option>
+                        <option value="Raiders">Las Vegas Raiders</option>
+                        <option value="Chargers">Los Angeles Chargers</option>
+                        <option value="Rams">Los Angeles Rams</option>
+                        <option value="Dolphins">Miami Dolphins</option>
+                        <option value="Vikings">Minnesota Vikings</option>
+                        <option value="Patriots">New England Patriots</option>
+                        <option value="Saints">New Orleans Saints</option>
+                        <option value="Giants">New York Giants</option>
+                        <option value="Jets">New York Jets</option>
+                        <option value="Eagles">Philadelphia Eagles</option>
+                        <option value="Steelers">Pittsburgh Steelers</option>
+                        <option value="49ers">San Francisco 49ers</option>
+                        <option value="Seahawks">Seattle Seahawks</option>
+                        <option value="Buccaneers">Tampa Bay Buccaneers</option>
+                        <option value="Titans">Tennessee Titans</option>
+                        <option value="Commanders">Washington Commanders</option>
+    </select>
+
+    <label for="players">Select Player:</label>
+    <select id="players">
+      <!-- Add options for each NFL player -->
+      <option value="choose">Choose Player</option>
+                        <option value="Marvin Harrison Jr">Marvin Harrison Jr, WR, Ohio State </option>
+                        <option value="Caleb Williams">Caleb Williams, QB, Southern California</option>
+                        <option value="Joe Alt">Joe Alt, OT, Notre Dame</option>
+                        <option value="Malik Nabers">Malik Nabers, WR, Lousiana State</option>
+                        <option value="Drake Maye">Drake Maye, QB, North Carolina</option>
+                        <option value="Brock Bowers">Brock Bowers, TE, Georgia</option>
+                        <option value="Laiatu Latu">Laiatu Latu, DL/EDGE, California (LA)</option>
+                        <option value="Jayden Daniels">Jayden Daniels, QB, Lousiana State</option>
+                        <option value="Michael Penix Jr">Michael Penix Jr, QB, Washington</option>
+                        <option value="Ga'Quincy McKinstry"> Kool-Aid McKinstry, CB, Alabama</option>
+                        <option value="Olumuyiwa Fashanu">Olumuyiwa Fashanu, OT, Penn State</option>
+                        <option value="Rome Odunze">Rome Odunze, WR, Washington</option>
+                        <option value="Chop Robinson">Chop Robinson, DE/EDGE, Penn State</option>
+                        <option value="Xavier Legette">Xavier Legette, WR, South Carolina</option>
+                        <option value="JC Latham">JC Latham, OT, Alabama </option>
+                        <option value="Jer'Zhan Newton">Jer'Zhan Newton, DL, Illinois</option>
+                        <option value="Bralen Trice">Bralen Trice, DE/EDGE, Washington</option>
+                        <option value="Bo Nix">Bo Nix, QB, Oregon</option>
+                        <option value="Javon Bullard">Javon Bullard, S, Georgia</option>
+                        <option value="Tyler Nubin">Tyler Nubin, S, Minnesota</option>
+                        <option value="Jared Verse">Jared Verse, DE/EDGE, Florida State</option>
+                        <option value="Dallas Turner">Dallas Turner, LB/EDGE, Alabama</option>
+                        <option value="Emeka Egbuka">Emeka Egbuka, WR, Ohio State</option>
+                        <option value="Giants">Taliese Fuaga, OT, Oregon State</option>
+                        <option value="Jets">Ja'Tavion Sanders, TE, Texas</option>
+                        <option value="Eagles">Johnny Wilson, WR, Florida State</option>
+                        <option value="Steelers">Terrion Arnold, CB, Alabama</option>
+                        <option value="49ers">Xavier Worthy, WR, Texas</option>
+                        <option value="Seahawks">T'Vondre Sweat, DL, Texas</option>
+                        <option value="Buccaneers">JT Tuimoloau, DE/EDGE, Ohio State</option>
+                        <option value="Titans">Edgerrin Cooper, LB, Texas A&M</option>
+                        <option value="Commanders">Kris Abrams-Draine, CB, Missouri</option>
+                        <option value="Commanders">Josh Newton, CB, Texas Christian</option>
+                        <option value="Commanders">Nate Wiggins, CB, Clemson</option>
+                        <option value="Commanders">Troy Franklin, WR, Oregon</option>
+                        <option value="Commanders">Keon Coleman, WR, Florida State</option>
+                        <option value="Commanders">Kamari Lassiter, CB, Georgia</option>
+                        <option value="Commanders">Quinn Ewers, QB, Texas</option>
+                        <option value="Commanders">T.J. Tampa, CB, Iowa State</option>
+                        <option value="Commanders">Carson Beck, QB, Georgia</option>
+                        <option value="Commanders">J.J. McCarthy, QB, Michigan</option>
+                        <option value="Commanders">Calen Bullock, S, Southern California</option>
+                        <option value="Commanders">Jeremiah Trotter Jr, LB, Clemson</option>
+                        <option value="Commanders">Kalen King, CB, Penn State</option>
+                        <option value="Commanders">Jordan Morgan, OT, Arizona</option>
+                        <option value="Commanders">Patrick Paul, OT, Houston</option>
+                        <option value="Commanders">Jonah Elliss, DE/EDGE, Utah</option>
+                        <option value="Commanders">Javon Foster, OT, Missouri</option>
+                        <option value="Commanders">Coooper Beebe, OG, Kansas State</option>
+                        <option value="Commanders">Kingsley Suamataia, OT, Brigham Young</option>
+                        <option value="Commanders">Kris Jenkins, DL/EDGE, Michigan</option>
+                        <option value="Commanders">Brandon Dorlus, DE/EDGE, Oregon</option>
+                        <option value="Commanders">Johnathan Brooks, RB, Texas</option>
+                        <option value="Commanders">Cooper DeJean, CB, Ioiwa</option>
+                        <option value="Commanders">Denzel Burke, CB, Ohio State</option>
+                        <option value="Commanders">Jermaine Burton, WR, Alabama</option>
+                        <option value="Commanders">Ladd McConkey, WR, Georgia</option>
+                        <option value="Commanders">Byron Murphy II, DL, Texas</option>
+                        <option value="Commanders">Leonard Taylor III, DL, Miami (FL)</option>
+                        <option value="Commanders">Ja'Lynn Polk, WR, Washington</option>
+                        <option value="Commanders">Malachi Corley, WR, Western Kentucky</option>
+                        <option value="Commanders">Mekhi Wingo, DT, Louisiana State</option>
+                        <option value="Commanders">Kamren Kinchens, S, Miami (FL)</option>
+                        <option value="Commanders">Sedrick Van Pran, C, Georgia</option>
+                        <option value="Commanders">Jack Sawyer, CB, Ohio State</option>
+                        <option value="Commanders">Ruke Orhorhoro, DT, Clemson</option>
+                        <option value="Commanders">Chris Braswell, LB/EDGE, Alabama</option>
+                        <option value="Commanders">Blake Corum, RB, Michigan</option>
+                        <option value="Commanders">Caelon Carson, CB, Wake Forest</option>
+                        <option value="Commanders">Brian Thomas Jr, WR, Lousiana State</option>
+                        <option value="Commanders">Quionyon Mitchell, CB, Toledo</option>
+                        <option value="Commanders">Adonai Mitchell, WR, Texas</option>
+                        <option value="Commanders">Braelon Allen, RB, Wisconsin</option>
+                        <option value="Commanders">D.J. James, CB, Auburn</option>
+                        <option value="Commanders">Rod Moore, S, Michigan</option>
+                        <option value="Commanders">Howard Cross III, DL, Notre Dame</option>
+                        <option value="Commanders">Jaylin Simpson, CB, Auburn</option>
+                        <option value="Commanders">Malik Washington, WR, Virginia</option>
+                        <option value="Commanders">Amarius Mims, OT, Georgia</option>
+                        <option value="Commanders">Maason Smith, DL/EDGE, Lousiana State</option>
+                        <option value="Commanders">Zak Zinter, OG, Michigan</option>
+                        <option value="Commanders">McKinnley Jackson, DL, Texas A&M</option>
+                        <option value="Commanders">Marist Liufau, LB, Notre Dame</option>
+                        <option value="Commanders">Michael Hall Jr, DT, Ohio State</option>
+                        <option value="Commanders">Nazir Stackhouse, DL, Georgia</option>
+                        <option value="Commanders">TreVeyon Henderson, RB, Ohio State</option>
+                        <option value="Commanders">Brenden Rice, WR, Southern California</option>
+                        <option value="Commanders">Michael Pratt, QB, Tulane</option>
+                        <option value="Commanders">Jordan Travis, QB, Florida State</option>
+                        <option value="Commanders">Jackson Powers-Johnson, C, Oregon</option>
+                        <option value="Commanders">Mohammed Kamara, DL/EDGE, Colorado State</option>
+                        <option value="Commanders">Tory Horton, WR, Colorado Statee</option>
+                        <option value="Commanders">Christian Haynes, OG, Connecticut</option>
+                        <option value="Commanders">Tyler Davis, DT, Clemson</option>
+                        <option value="Commanders">Max Melton, CB, Rutgers</option>
+                        <option value="Commanders">Blake Fisher, OT, Notre Dame</option>
+                        <option value="Commanders">Dominick Puni, OT, Kansas</option>
+                        <option value="Commanders">Graham Barton, OT, Duke</option>
+                        <option value="Commanders">Danny Stutsman, LB, Oklahoma</option>
+                        <option value="Commanders">Bucky Irving, RB, Oregon</option>
+                        <option value="Commanders">Payton Wilson, LB, North Carolina State</option>
+                        <option value="Commanders">Smael Mondon Jr, LB, Georgia</option>
+                        <option value="Commanders">Matt Goncalves, OT, Pittsburgh</option>
+                        <option value="Commanders">Kiran Amegadjie, OT, Yale</option>
+                        <option value="Commanders">Audric Estime, RB, Notre Dame</option>
+                        <option value="Commanders">Tate Ratledge, OG, Georgia</option>
+                        <option value="Commanders">Tyleik Williams, DT, Ohio State</option>
+                        <option value="Commanders">Jason Marshall Jr, CB, Florida</option>
+                        <option value="Commanders">Jalen McMillan, WR, Washington</option>
+                        <option value="Commanders">Junior Colson, LB, Michigan</option>
+                        <option value="Commanders">Javon Cohen, OG, Miami (FL)</option>
+                        <option value="Commanders">Troy Fautanu, OT, Washington</option>
+                        <option value="Commanders">Roman Wilson, WR, Michigan</option>
+                        <option value="Commanders">Adisa Isaac, DE/EDGE, Penn State</option>
+                        <option value="Commanders">Marshawn Kneeland, DE/EDGE, Western Michigan</option>
+                        <option value="Commanders">Khyree Jackson, CB, Oregon</option>
+                        <option value="Commanders">James Williams, S, Miami (FL)</option>
+                        <option value="Commanders">Jaheim Bell, TE, Florida State</option>
+                        <option value="Commanders">Spencer Rattler, QB, South Carolina</option>
+                        <option value="Commanders">Reuben Fatheree II, OT, Texas A&M</option>
+                        <option value="Commanders">Ricky Pearsall, WR, Florida</option>
+                        <option value="Commanders">Nehemiah Prichett, CB, Auburn</option>
+                        <option value="Commanders">Tommy Eichenberg, LB, Ohio State</option>
+                        <option value="Commanders">Beau Brade, S, Maryland</option>
+                        <option value="Commanders">Connor Colby, OT, Iowa</option>
+                        <option value="Commanders">Beaux Limmer, C, Arkansas</option>
+                        <option value="Commanders">Ben Sinnott, TE, Kansas State</option>
+                        <option value="Commanders">Donovan Jackson, OG, Ohio State</option>
+                        <option value="Commanders">Zach Frazier, C, West Virginia</option>
+                        <option value="Commanders">Cade Stover, TE, Ohio State</option>
+                        <option value="Commanders">Jamon Dumas-Johnson, LB, Georgia</option>
+                        <option value="Commanders">Joe Milton III, QB, Tennessee</option>
+                        <option value="Commanders">Cole Bishop, S, Utah</option>
+                        <option value="Commanders">Jamari Thrash, WR, Louisville</option>
+                        <option value="Commanders">AJ Barner, TE, Michigan</option>
+                        <option value="Commanders">KJ Jefferson, QB, Arkansas</option>
+                        <option value="Commanders">Tahj Brooks, RB, Texas Tech</option>
+                        <option value="Commanders">Tyler Guyton, OT, Oklahoma</option>
+                        <option value="Commanders">Darius Robinson, DL/EDGE, Missouri</option>
+                        <option value="Commanders">MarShawn Lloyd, RB, Southern California</option>
+                        <option value="Commanders">Cedric Gray, LB, North Carolina</option>
+                        <option value="Commanders">Luke Lachey, TE, Iowa</option>
+                        <option value="Commanders">Jack Nelson, OT, Wisconsin</option>
+    </select>
+
+    <button onclick="simulateDraft()">Simulate Draft</button>
+
+    <div class="draft-results">
+      <h2>Draft Results</h2>
+      <div id="draftPicks" class="pick"></div>
+    </div>
+  </main>
+
+  <div class="footer">
+    <p>&copy; 2024 NFL Mock Draft Simulator</p>
+  </div>
+
+  <script>
+    function simulateDraft() {
+      const teamSelect = document.getElementById("teams");
+      const playerSelect = document.getElementById("players");
+      const draftPicksContainer = document.getElementById("draftPicks");
+
+      const selectedTeam = teamSelect.options[teamSelect.selectedIndex].text;
+      const selectedPlayer = playerSelect.options[playerSelect.selectedIndex].text;
+
+      const draftPick = document.createElement("div");
+      draftPick.classList.add("pick");
+      draftPick.textContent = `${selectedTeam} selects ${selectedPlayer}.`;
+
+      draftPicksContainer.appendChild(draftPick);
+    }
+  </script>
+
+</body>
+</html>

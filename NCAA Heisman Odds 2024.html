@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NCAA Heisman Odds 2024</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0; /* Light Gray */
+      color: #333;
+    }
+
+    header {
+      background-color: #232323;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+
+    option {
+      background-color: #fff;
+      color: black;
+    }
+
+    option[data-color] {
+      background-color: var(--team-color);
+      color: #000000;
+    }
+
+    article {
+      line-height: 1.6;
+    }
+
+    .footer {
+      background-color: #232323;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    nav {
+      background-color: #3498db;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+    <nav>
+        <a href="2024 NFL Mock Draft Simulator.html">Mock Draft Simulator</a>
+        <a href="football heads official site.html">Main Site</a>
+        <a href="fbheads_articlearcives.html">Archives</a>
+      </nav>
+
+  <header id="1">
+    <h1>NCAA Heisman Odds 2024</h1>
+  </header>
+
+  <main>
+    <label for="players">Select a Player:</label>
+    <select id="players" onchange="changeBackgroundColor()">
+      <option value="player1" data-color="#d07c00">Quinn Ewers (Texas)</option>
+      <option value="player2" data-color="#ff0000">Carson Beck (Georgia)</option>
+      <option value="player3" data-color="#900000">Jalen Milroe (Alabama)</option>
+      <option value="player3" data-color="#d00f00">Dillion Gabriel (Oklahoma)</option>
+      <option value="player3" data-color="#8c8c8c">Will Howard (Ohio State)</option>
+      <option value="player3" data-color="#ffa836">Nico Iamaleava (Tennessee)</option>
+      <option value="player3" data-color="#7d00ff">Garrett Nussmeier (LSU)</option>
+      <option value="player3" data-color="#d00f00">Jackson Arnold (Oklahoma)</option>
+      <option value="player3" data-color="#00a3d4">Jaxson Dart (Ole Miss)</option>
+      <option value="player3" data-color="#fd2f2f">Noah Fifita (Arizona)</option>
+      <option value="player3" data-color="#790000">Conner Weigman (Texas A&M)</option>
+      <option value="player3" data-color="#040079">J.J. McCarthy (Michigan)</option>
+      <option value="player3" data-color="#882a2a">D.J. Uiagalelei (Florida State)</option>
+      <!-- Add more players and teams as needed -->
+    </select>
+
+    <article>
+      <p>Quinn Ewers, Texas: +750 (bet $10 to win $85 total)</p>
+      <p>Carson Beck, Georgia: +750 (bet $10 to win $85 total)</p>
+      <p>Jalen Milroe, Alabama: +750 (bet $10 to win $85 total)</p>
+      <p>Dillion Gabriel, Oklahoma: +1000 (bet $10 to win $110 total)</p>
+      <p>Will Howard, Ohio State: +1500 (bet $10 to win $160 total)</p>
+      <p>Nico Iamaleava, Tennessee: +1500 (bet $10 to win $160 total)</p>
+      <p>Garrett Nussmeier, LSU: +1800 (bet $10 to win $190 total)</p>
+      <p>Jackson Arnold, Oklahoma: +1800 (bet $10 to win $190 total)</p>
+      <p>Jaxson Dart, Ole Miss: +1800 (bet $10 to win $190 total)</p>
+      <p>Noah Fifita, Arizona: +2000 (bet $10 to win $210 total)</p>
+      <p>Conner Weigman, Texas A&M: +2000 (bet $10 to win $210 total)</p>
+      <p>J.J. McCarthy, Michigan: +2000 (bet $10 to win $210 total)</p>
+      <p>D.J. Uiagalelei, Oregon State: +2500 (bet $10 to win $260 total)</p>
+    </article>
+  </main>
+
+  <div class="footer">
+    <p>&copy; 2024 NCAA Heisman Odds</p>
+  </div>
+
+  <script>
+    function changeBackgroundColor() {
+      const playersSelect = document.getElementById("players");
+      const selectedOption = playersSelect.options[playersSelect.selectedIndex];
+      document.documentElement.style.setProperty('--team-color', selectedOption.getAttribute('data-color'));
+    }
+  </script>
+
+</body>
+</html>

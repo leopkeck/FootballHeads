@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football Heads - Custom College Creator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0; /* Light Gray */
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background-color: #232323;
+      padding: 20px;
+      color: #fff;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #3498db; /* Blue */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #e74c3c; /* Darker Blue */
+    }
+
+    .result {
+      margin-top: 30px;
+    }
+
+    .footer {
+      background-color: #232323;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Football Heads - Custom College Creator</h1>
+  </header>
+
+  <main>
+    <label for="collegeName">College Name:</label>
+    <input type="text" id="collegeName" placeholder="Enter College Name">
+
+
+    <br>
+
+
+    <button onclick="generateRandomCity()">Generate Random City</button>
+    <div id="cityResult" class="result"></div>
+
+    <br>
+
+    <button onclick="generateRandomColors()">Generate Random Colors</button>
+    <div id="colorsResult" class="result"></div>
+
+    <br>
+
+    <button onclick="generateRandomMascot()">Generate Random Mascot</button>
+    <div id="mascotResult" class="result"></div>
+
+    <br>
+
+    <button onclick="generateRandomConference()">Generate Random Conference</button>
+    <div id="conferenceResult" class="result"></div>
+
+    <br>
+
+    <button onclick="generateRandomGPA()">Generate Random GPA Requirement</button>
+    <div id="gpaResult" class="result"></div>
+
+    <br>
+
+  </main>
+
+  <div class="footer">
+    <p>&copy; 2024 Football Heads</p>
+  </div>
+
+  <script>
+    function generateRandomCity() {
+      const cities = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia', 'San Antonio', 'Indianapolis','Fort Wayne','Plano','Toledo','San Antonio','Tucson','Nashville-Davidson','Albuquerque','Hialeah','Reno','Jersey City','Durham','Sacramento','Arlington','St. Petersburg','Norfolk','Baton Rouge','Baltimore','Miami','Philadelphia','Chesapeake','Madison','Virginia Beach', 'Scottsdale','Orlando','Mesa','San Francisco','Cincinnati','Washington D.C.','Phoenix','Modesto','Boston','Honolulu','Atlanta','St. Louis','Chula Vista','San Antonio','Detroit','Charlotte','Houston','Wichita','Kansas City','North Hempstead','New York','Garland','Greensvoro','Greensboro','Greens','Queens','Rochester','Minneapolis','Buffalo','Denver','Memphis','San Jose','Pitsburgh','Portland','Austin','Plano','Newark','Chicago','Columbus','Corpus Christi','Raleigh','Dallas'];
+      const randomCity = cities[Math.floor(Math.random() * cities.length)];
+      const cityResultElement = document.getElementById('cityResult');
+      cityResultElement.textContent = `City: ${randomCity}`;
+
+      // You can add images corresponding to the cities if needed
+    }
+
+    function generateRandomColors() {
+      const randomColor = getRandomColor();
+      const colorsResultElement = document.getElementById('colorsResult');
+      colorsResultElement.textContent = `Colors: ${randomColor}`;
+
+      // You can add color boxes or styles if needed
+      colorsResultElement.style.backgroundColor = randomColor;
+    }
+
+    function generateRandomMascot() {
+      const mascots = ['Eagles', 'Tigers', 'Bulldogs', 'Lions', 'Panthers', 'Bears'];
+      const randomMascot = mascots[Math.floor(Math.random() * mascots.length)];
+      const mascotResultElement = document.getElementById('mascotResult');
+      mascotResultElement.textContent = `Mascot: ${randomMascot}`;
+    }
+
+    function generateRandomConference() {
+      const conferences = ['ACC', 'SEC', 'Big Ten', 'Pac-12', 'Big 12', 'AAC'];
+      const randomConference = conferences[Math.floor(Math.random() * conferences.length)];
+      const conferenceResultElement = document.getElementById('conferenceResult');
+      conferenceResultElement.textContent = `Conference: ${randomConference}`;
+    }
+
+    function generateRandomGPA() {
+      const randomGPA = (Math.random() * (4.0 - 2.0) + 2.0).toFixed(2);
+      const gpaResultElement = document.getElementById('gpaResult');
+      gpaResultElement.textContent = `GPA Requirement: ${randomGPA}`;
+    }
+
+
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+  </script>
+
+</body>
+</html>

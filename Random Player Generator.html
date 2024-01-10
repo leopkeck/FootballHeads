@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Player Generator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0; /* Light Gray */
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background-color: #232323;
+      padding: 20px;
+      color: #fff;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #3498db; /* Blue */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #e74c3c; /* Darker Blue */
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .footer {
+      background-color: #232323;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    nav {
+      background-color: #3498db;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <a href="2024 NFL Mock Draft Simulator.html">Mock Draft Simulator</a>
+        <a href="football heads official site.html">Main Site</a>
+        <a href="fbheads_articlearcives.html">Archives</a>
+      </nav>
+
+  <header>
+    <h1>Random Player Generator</h1>
+  </header>
+
+  <main>
+    <button onclick="generateRandomPlayer()">Generate Random Player</button>
+    <div id="playerName"></div>
+    <div id="playerImage"></div>
+  </main>
+
+  <div class="footer">
+    <p>&copy; 2024 Random Player Generator</p>
+  </div>
+
+  <script>
+    const players = [
+      { name: "Lamar Jackson", image: "https://example.com/player1.jpg" },
+      { name: "Josh Allen", image: "https://example.com/player2.jpg" },
+      { name: "Jake Browning", image: "https://example.com/player3.jpg" },
+      { name: "Joe Burrow", image: "https://example.com/player1.jpg" },
+      { name: "Joe Flacco", image: "https://example.com/player2.jpg" },
+      { name: "Deshaun Watson", image: "https://example.com/player3.jpg" },
+      { name: "Russell Wilson", image: "https://example.com/player1.jpg" },
+      { name: "C.J. Stroud", image: "https://example.com/player2.jpg" },
+      { name: "Anthony Richardson", image: "https://example.com/player3.jpg" },
+      { name: "Gardner Minshew", image: "https://example.com/player1.jpg" },
+      { name: "Trevor Lawrence", image: "https://example.com/player2.jpg" },
+      { name: "Patrick Mahomes", image: "https://example.com/player3.jpg" },
+      { name: "Aidan O’Connell", image: "https://example.com/player1.jpg" },
+      { name: "Justin Herbert", image: "https://example.com/player2.jpg" },
+      { name: "Easton Stick", image: "https://example.com/player3.jpg" },
+      { name: "Player 1", image: "https://example.com/player1.jpg" },
+      { name: "Player 2", image: "https://example.com/player2.jpg" },
+      { name: "Player 3", image: "https://example.com/player3.jpg" },
+      { name: "Player 1", image: "https://example.com/player1.jpg" },
+      { name: "Player 2", image: "https://example.com/player2.jpg" },
+      { name: "Player 3", image: "https://example.com/player3.jpg" },
+      { name: "Player 1", image: "https://example.com/player1.jpg" },
+      { name: "Player 2", image: "https://example.com/player2.jpg" },
+      { name: "Player 3", image: "https://example.com/player3.jpg" },
+      { name: "Player 1", image: "https://example.com/player1.jpg" },
+      { name: "Player 2", image: "https://example.com/player2.jpg" },
+      { name: "Player 3", image: "https://example.com/player3.jpg" },
+      { name: "Player 1", image: "https://example.com/player1.jpg" },
+      { name: "Player 2", image: "https://example.com/player2.jpg" },
+      { name: "Player 3", image: "https://example.com/player3.jpg" },
+      { name: "Player 1", image: "https://example.com/player1.jpg" },
+      { name: "Player 2", image: "https://example.com/player2.jpg" },
+      // Add more players with their names and image URLs
+    ];
+
+    function generateRandomPlayer() {
+      const playerNameElement = document.getElementById("playerName");
+      const playerImageElement = document.getElementById("playerImage");
+
+      const randomIndex = Math.floor(Math.random() * players.length);
+      const randomPlayer = players[randomIndex];
+
+      playerNameElement.textContent = `Player Name: ${randomPlayer.name}`;
+
+      const playerImage = document.createElement("img");
+      playerImage.src = randomPlayer.image;
+      playerImage.alt = randomPlayer.name;
+      playerImageElement.innerHTML = ""; // Clear previous image
+      playerImageElement.appendChild(playerImage);
+    }
+  </script>
+
+</body>
+</html>
