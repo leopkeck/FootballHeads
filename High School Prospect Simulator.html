@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High School Prospect Simulator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0; /* Light Gray */
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background-color: #232323;
+      padding: 20px;
+      color: #fff;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    select, input {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      background-color: #3498db; /* Blue */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #1f618d; /* Darker Blue */
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    nav {
+      display: flex;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      padding: 10px 20px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      background-color: #3498db; /* Blue */
+    }
+
+  </style>
+</head>
+<body>
+
+    <nav>
+        <a href="2024 NFL Mock Draft Simulator.html">Mock Draft Simulator</a>
+        <a href="index.html">Main Site</a>
+        <a href="fbheads_articlearcives.html">Archives</a>
+      </nav>
+
+  <header>
+    <h1>High School Prospect Simulator</h1>
+  </header>
+
+  <main>
+    <label for="playerName">Player Name:</label>
+    <input type="text" id="playerName" placeholder="Enter player name">
+
+    <label for="position">Choose Position:</label>
+    <select id="position">
+      <option value="QB">Quarterback</option>
+      <option value="RB">Running Back</option>
+      <option value="WR">Wide Receiver</option>
+      <option value="OL">Offensive Line</option>
+      <option value="DL">Defensive Line</option>
+      <option value="LB">Linebacker</option>
+      <option value="DB">Defensive Back</option>
+    </select>
+
+    <button onclick="generateRandomStats()">Generate Random Stats</button>
+
+    <p id="randomStats"></p>
+  </main>
+
+  <script>
+    function generateRandomStats() {
+      const playerName = document.getElementById('playerName').value;
+      
+      
+      const position = document.getElementById('position').value;
+      
+      
+      const gpa = (Math.random() * (4 - 2) + 2).toFixed(2); // Random GPA between 2.00 and 4.00
+      
+      
+      const stars = Math.floor(Math.random() * 5) + 1; // Random star stars between 1 and 5
+      
+      
+      const rating = (Math.random() * 1).toFixed(3); // Random rating between 0.000 and 1.000
+      
+      
+      const city = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'][Math.floor(Math.random() * 5)]; // Random city
+      
+      
+      const offers = ['Air Force', 'Akron', 'Alabama', 'Appalachian State', 'Arizona', 'Arizona State', 'Arkansas', 'Arkansas State', 'Army', 'Auburn', 'Ball State', 'Baylor', 'Boise State', 'Boston College', 'Buffalo', 'BYU', 'California', 'Central Michigan', 'Charlotte', 'Cincinatti', 'Clemson', 'Coastal Carolina', 'Colorado', 'Colorado State', 'Duke', 'East Carolina', 'Eastern Michigan', 'FAU', 'FIU', 'Florida', 'Florida State', 'Georgia', 'Georgia Southern', 'Georgia State', 'Georgia Tech', 'Hawaii', 'Houston', 'Illinois', 'Indiana', 'Iowa', 'Iowa State', 'Jacksonville State', 'James Madison', 'KU', 'K-State', 'Kennesaw State', 'Kent State', 'Kentucky', 'Liberty', 'Louisiana', 'Louisiana-Monroe', 'Louisiana Tech', 'Louisville', 'LSU', 'Marshall', 'Maryland', 'Memphis', 'Miami (FL)', 'Miami (OH)', 'Michigan', 'Michigan State', 'Middle Tennessee State', 'Minnesota', 'Mississippi State', 'Missouri', 'Navy', 'NC State', 'Nebraska', 'Nevada', 'New Mexico', 'New Mexico State', 'North Carolina', 'Northern Texas', 'Northern Illinois', 'Northwestern', 'Notre Dame', 'Ohio', 'Ohio State', 'Oklahoma', 'Oklahoma State', 'Old Dominion', 'Ole Miss', 'Oregon', 'Oregon State', 'Penn State', 'Pitt', 'Purdue', 'Rice', 'Rutgers', 'Sam Houston', 'San Diego State', 'San Jose State', 'SMU', 'South Alabama', 'South Carolina', 'South Florida', 'Southern Miss', 'Standford', 'Syracuse', 'TCU', 'Temple', 'Tennessee', 'Texas', 'Texas A&M', 'Texas State', 'Texas Tech', 'Toledo', 'Troy', 'Tulane', 'Tulsa', 'UAB', 'UCF', 'UCLA', 'UCLA', 'UConn', 'UMass', 'UNLV', 'USC', 'UTEP', 'UTSA', 'Utah', 'Utah State', 'Vanderbilt', 'Virginia', 'Virginia Tech', 'Wake Forest', 'Washington', 'Washington State', 'West Virginia', 'Western Kentucky', 'Western Michigan', 'Wisconsin', 'Wyoming']
+        .sort(() => Math.random() - 0.5) // Shuffle offers
+        .slice(0, 5); // Choose 5 random offers
+
+      const randomStatsText = `
+        Player Name: ${playerName}
+        Position: ${position}
+        GPA: ${gpa}
+        Stars: ${'*'.repeat(stars)}
+        Rating: ${rating}
+        City: ${city}
+        Offers: ${offers.join(', ')}
+      `;
+
+      document.getElementById('randomStats').textContent = randomStatsText;
+    }
+  </script>
+
+</body>
+</html>
