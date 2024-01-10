@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soccer Player Career Sim</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0; /* Light Gray */
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background-color: #232323;
+      padding: 20px;
+      color: #fff;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      background-color: #3498db; /* Blue */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #1f618d; /* Darker Blue */
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    nav {
+      display: flex;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      padding: 10px 20px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      background-color: #3498db; /* Blue */
+    }
+
+  </style>
+</head>
+<body>
+
+    <nav>
+        <a href="2024 NFL Mock Draft Simulator.html">Mock Draft Simulator</a>
+        <a href="index.html">Main Site</a>
+        <a href="fbheads_articlearcives.html">Archives</a>
+      </nav>
+
+  <header>
+    <h1>Soccer Player Career Sim</h1>
+  </header>
+
+  <main>
+    <button onclick="startCareer()">Start Career</button>
+    <div id="careerStats"></div>
+  </main>
+
+  <script>
+    let careerStats = {
+      goals: 0,
+      assists: 0,
+      redCards: 0,
+      yellowCards: 0,
+      goalsAssists: 0,
+      shots: 0,
+      awards: 0
+    };
+
+    function startCareer() {
+      // Clear previous career stats
+      careerStats = {
+        goals: 0,
+        assists: 0,
+        redCards: 0,
+        yellowCards: 0,
+        goalsAssists: 0,
+        shots: 0,
+        awards: 0
+      };
+
+      document.getElementById('careerStats').innerHTML = '';
+
+      for (let season = 1; season <= 10; season++) {
+        simulateSeason(season);
+      }
+
+      displayCareerStats();
+    }
+
+    function simulateSeason(season) {
+      const seasonStats = {
+        goals: getRandomNumber(10, 30),
+        assists: getRandomNumber(5, 20),
+        redCards: getRandomNumber(0, 2),
+        yellowCards: getRandomNumber(1, 10),
+        shots: getRandomNumber(30, 100),
+        awards: getRandomNumber(0, 5)
+      };
+
+      seasonStats.goalsAssists = seasonStats.goals + seasonStats.assists;
+
+      // Update career stats
+      for (const key in careerStats) {
+        careerStats[key] += seasonStats[key];
+      }
+
+      displaySeasonStats(season, seasonStats);
+    }
+
+    function getRandomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function displaySeasonStats(season, stats) {
+      const statsDiv = document.getElementById('careerStats');
+      const seasonDiv = document.createElement('div');
+      seasonDiv.innerHTML = `<h3>Season ${season}</h3>
+        <p>Goals: ${stats.goals}</p>
+        <p>Assists: ${stats.assists}</p>
+        <p>Red Cards: ${stats.redCards}</p>
+        <p>Yellow Cards: ${stats.yellowCards}</p>
+        <p>Goals + Assists: ${stats.goalsAssists}</p>
+        <p>Shots: ${stats.shots}</p>
+        <p>Awards: ${stats.awards}</p>`;
+      statsDiv.appendChild(seasonDiv);
+    }
+
+    function displayCareerStats() {
+      const statsDiv = document.getElementById('careerStats');
+      const careerDiv = document.createElement('div');
+      careerDiv.innerHTML = `<h2>Career Totals</h2>
+        <p>Total Goals: ${careerStats.goals}</p>
+        <p>Total Assists: ${careerStats.assists}</p>
+        <p>Total Red Cards: ${careerStats.redCards}</p>
+        <p>Total Yellow Cards: ${careerStats.yellowCards}</p>
+        <p>Total Goals + Assists: ${careerStats.goalsAssists}</p>
+        <p>Total Shots: ${careerStats.shots}</p>
+        <p>Total Awards: ${careerStats.awards}</p>`;
+      statsDiv.appendChild(careerDiv);
+    }
+  </script>
+
+</body>
+</html>
