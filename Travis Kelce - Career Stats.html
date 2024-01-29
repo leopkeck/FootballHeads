@@ -69,39 +69,7 @@
   0% { opacity: 0; }
   100% { opacity: 1; }
     }
-    
-    section { height: 100vh; }
 
-    .tag {
-  opacity: 0;
-  transform: translate(0, 10vh);
-  transition: all 1s;
-  }
-
-    
-.tag.visible {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-  .red { background-color: lightcoral; }
-  </style>
-
-  <script>
-    $(document).on("scroll", function() {
-  var pageTop = $(document).scrollTop();
-  var pageBottom = pageTop + $(window).height();
-  var tags = $(".tag");
-
-  for (var i = 0; i < tags.length; i++) {
-    var tag = tags[i];
-    if ($(tag).position().top < pageBottom) {
-      $(tag).addClass("visible");
-    } else {
-      $(tag).removeClass("visible");
-    }
-  }
-});
-  </script>
 </head>
 <body>
 
@@ -218,8 +186,6 @@
         <li>Games with 100+ receiving yards in the playoffs: 8 (tied with <a href="Jerry Rice.html">Jerry Rice</a>)</li>
       </ul>
     </div>
-
-    <section class="tag red"><h1>Bio</h1></section>
     
   </main>
 
